@@ -1,0 +1,1 @@
+const s=document.querySelectorAll("[data-parallax-bg]");function l(){const e=window.scrollY;s.forEach(a=>{const n=a.closest(".parallax-section");if(!n)return;const r=n.getBoundingClientRect().top+e,o=(e-r)*.4;a.style.transform=`translateY(${o}px)`})}let t=!1;window.addEventListener("scroll",()=>{t||(requestAnimationFrame(()=>{l(),t=!1}),t=!0)},{passive:!0});l();

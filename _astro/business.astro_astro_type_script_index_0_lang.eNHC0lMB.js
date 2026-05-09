@@ -1,0 +1,1 @@
+const t=document.querySelectorAll("[data-reveal]"),r=new IntersectionObserver(e=>{e.forEach(s=>{s.isIntersecting&&(s.target.classList.add("is-visible"),r.unobserve(s.target))})},{threshold:.15});t.forEach(e=>r.observe(e));
