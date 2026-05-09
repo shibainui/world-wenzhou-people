@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "world-wenzhou-people",
   "type": "module",
   "version": "0.0.1",
