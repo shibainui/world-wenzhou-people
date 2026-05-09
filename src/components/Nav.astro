@@ -8,7 +8,7 @@
       <li><a href="/culture">文化</a></li>
       <li><a href="/about">关于</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -16,7 +16,7 @@
   </div>
 </nav>
 
-<style define:vars>
+<style>
   nav {
     position: fixed;
     top: 0;
@@ -29,6 +29,7 @@
 
   nav.scrolled {
     background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
   }
 
@@ -114,11 +115,27 @@
   const hamburger = document.getElementById('hamburger');
   const links = nav?.querySelector('.nav-links');
 
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 50);
-  });
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        nav?.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   hamburger?.addEventListener('click', () => {
-    links?.classList.toggle('open');
+    const isOpen = links?.classList.toggle('open') ?? false;
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links?.classList.contains('open')) {
+      links.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      hamburger?.focus();
+    }
   });
 </script>
