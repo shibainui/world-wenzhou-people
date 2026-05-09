@@ -1,0 +1,66 @@
+---
+interface Props {
+  bgImage: string;
+  headingZh: string;
+  headingEn: string;
+  dark?: boolean;
+}
+
+const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
+const textColor = dark ? '#ffffff' : 'var(--color-text)';
+const subtitleColor = dark ? 'rgba(255,255,255,0.7)' : 'var(--color-accent)';
+---
+
+<section
+  class="parallax-section"
+  style={`background-image: url(${bgImage}); --text-color: ${textColor}; --subtitle-color: ${subtitleColor};`}
+>
+  <div class="parallax-overlay" data-parallax-bg></div>
+  <div class="parallax-content">
+    <h2 style={`color: ${textColor};`}>{headingZh}</h2>
+    <p class="en-sub" style={`color: ${subtitleColor};`}>{headingEn}</p>
+    <div class="parallax-body">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .parallax-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .parallax-overlay {
+    position: absolute;
+    inset: -20%;
+    background-size: cover;
+    background-position: center;
+    background-image: inherit;
+    will-change: transform;
+  }
+
+  .parallax-content {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    width: 100%;
+  }
+
+  .parallax-body {
+    max-width: 640px;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-section {
+      min-height: 80vh;
+    }
+  }
+</style>
