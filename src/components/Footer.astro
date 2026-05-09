@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
 <footer>
   <div class="footer-inner">
     <div class="footer-col">
@@ -9,11 +13,11 @@
     <div class="footer-col">
       <nav aria-label="Footer navigation">
         <ul class="footer-links">
-          <li><a href="/">首页 <span>Home</span></a></li>
-          <li><a href="/history">历史 <span>History</span></a></li>
-          <li><a href="/business">商业 <span>Business</span></a></li>
-          <li><a href="/culture">文化 <span>Culture</span></a></li>
-          <li><a href="/about">关于 <span>About</span></a></li>
+          <li><a href={`${base}/`}>首页 <span>Home</span></a></li>
+          <li><a href={`${base}/history`}>历史 <span>History</span></a></li>
+          <li><a href={`${base}/business`}>商业 <span>Business</span></a></li>
+          <li><a href={`${base}/culture`}>文化 <span>Culture</span></a></li>
+          <li><a href={`${base}/about`}>关于 <span>About</span></a></li>
         </ul>
       </nav>
     </div>

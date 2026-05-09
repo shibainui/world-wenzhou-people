@@ -4,19 +4,20 @@ interface Props {
 }
 
 const { activePage = '/' } = Astro.props;
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const links = [
-  { href: '/', label: '首页' },
-  { href: '/history', label: '历史' },
-  { href: '/business', label: '商业' },
-  { href: '/culture', label: '文化' },
-  { href: '/about', label: '关于' },
+  { href: `${base}/`, label: '首页' },
+  { href: `${base}/history`, label: '历史' },
+  { href: `${base}/business`, label: '商业' },
+  { href: `${base}/culture`, label: '文化' },
+  { href: `${base}/about`, label: '关于' },
 ];
 ---
 
 <nav id="site-nav">
   <div class="nav-inner">
-    <a href="/" class="logo">
+    <a href={`${base}/`} class="logo">
       <span class="logo-zh">世界温州人</span>
       <span class="logo-en">World Wenzhou</span>
     </a>
