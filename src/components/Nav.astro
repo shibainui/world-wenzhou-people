@@ -1,0 +1,124 @@
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">世界温州人</a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="/history">历史</a></li>
+      <li><a href="/business">商业</a></li>
+      <li><a href="/culture">文化</a></li>
+      <li><a href="/about">关于</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style define:vars>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: var(--color-white);
+      padding: 1.5rem;
+      gap: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const hamburger = document.getElementById('hamburger');
+  const links = nav?.querySelector('.nav-links');
+
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  hamburger?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+</script>
