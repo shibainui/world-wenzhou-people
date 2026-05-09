@@ -7,18 +7,18 @@ interface Props {
 }
 
 const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
-const textColor = dark ? '#ffffff' : 'var(--color-text)';
-const subtitleColor = dark ? 'rgba(255,255,255,0.7)' : 'var(--color-accent)';
 ---
 
 <section
   class="parallax-section"
-  style={`background-image: url(${bgImage}); --text-color: ${textColor}; --subtitle-color: ${subtitleColor};`}
+  style={`background-image: url(${bgImage});`}
+  class:list={{ 'theme-dark': dark, 'theme-light': !dark }}
 >
-  <div class="parallax-overlay" data-parallax-bg></div>
+  <div class="section-gradient" data-parallax-bg></div>
   <div class="parallax-content">
-    <h2 style={`color: ${textColor};`}>{headingZh}</h2>
-    <p class="en-sub" style={`color: ${subtitleColor};`}>{headingEn}</p>
+    <div class="section-divider"></div>
+    <h2>{headingZh}</h2>
+    <p class="section-en">{headingEn}</p>
     <div class="parallax-body">
       <slot />
     </div>
@@ -36,31 +36,133 @@ const subtitleColor = dark ? 'rgba(255,255,255,0.7)' : 'var(--color-accent)';
     overflow: hidden;
   }
 
-  .parallax-overlay {
+  .section-gradient {
     position: absolute;
-    inset: -20%;
-    background-size: cover;
-    background-position: center;
-    background-image: inherit;
+    inset: 0;
     will-change: transform;
+  }
+
+  /* Dark theme: warm dark overlay for light text */
+  .theme-dark .section-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 10, 9, 0.55) 0%,
+      rgba(12, 10, 9, 0.35) 50%,
+      rgba(12, 10, 9, 0.55) 100%
+    );
+  }
+
+  .theme-dark h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .theme-dark .section-en {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .theme-dark .parallax-body :global(p) {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .theme-dark .parallax-body :global(.en-sub) {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .theme-dark .section-divider {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Light theme: subtle warm overlay */
+  .theme-light .section-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 249, 0.15) 0%,
+      rgba(250, 250, 249, 0.05) 50%,
+      rgba(250, 250, 249, 0.15) 100%
+    );
+  }
+
+  .theme-light .parallax-body :global(.en-sub) {
+    color: var(--color-text-muted);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
   }
 
   .parallax-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 6rem 2rem;
     width: 100%;
   }
 
+  .section-divider {
+    width: 56px;
+    height: 3px;
+    background: var(--color-accent);
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+
+  .section-en {
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+  }
+
   .parallax-body {
-    max-width: 640px;
+    max-width: 600px;
+  }
+
+  /* CTA links inside parallax sections */
+  .parallax-body :global(.cta-link) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid var(--color-divider);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    background: transparent;
+  }
+
+  .parallax-body :global(.cta-link:hover) {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .theme-dark .parallax-body :global(.cta-link) {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+
+  .theme-dark .parallax-body :global(.cta-link:hover) {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
   }
 
   @media (max-width: 768px) {
     .parallax-section {
       min-height: 80vh;
+    }
+
+    .parallax-content {
+      padding: 4rem 1.5rem;
     }
   }
 </style>

@@ -5,22 +5,16 @@ import ScrollReveal from '../components/ScrollReveal.astro';
 ---
 
 <Base title="首页">
-  <!-- Hero -->
   <ParallaxSection
     bgImage="/images/hero.jpg"
     headingZh="世界温州人"
     headingEn="World Wenzhou People"
     dark={true}
   >
-    <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.8;">
-      从东海之滨到世界舞台，温州人用脚步丈量全球，以智慧和勤劳书写跨越千年的移民史诗。
-    </p>
-    <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">
-      From the shores of the East China Sea to the world stage, Wenzhou people have measured the globe with their footsteps, writing an epic of migration spanning a thousand years.
-    </p>
+    <p>从东海之滨到世界舞台，温州人用脚步丈量全球，以智慧与勤劳书写跨越千年的移民史诗。</p>
+    <p class="en-sub">From the shores of the East China Sea to the world stage, Wenzhou people have measured the globe with their footsteps, writing an epic of migration spanning a thousand years.</p>
   </ParallaxSection>
 
-  <!-- History preview -->
   <ParallaxSection
     bgImage="/images/history.jpg"
     headingZh="千年迁徙"
@@ -28,12 +22,11 @@ import ScrollReveal from '../components/ScrollReveal.astro';
   >
     <ScrollReveal>
       <p>从宋代海上丝绸之路的起点，到近代遍布全球的温州侨乡网络，温州人的迁徙史就是一部浓缩的中国全球化进程。</p>
-      <p class="en-sub" style="text-transform:none;letter-spacing:0;">From the Maritime Silk Road to modern global networks, the Wenzhou migration story mirrors China's globalization.</p>
+      <p class="en-sub">From the Maritime Silk Road to modern global networks, the Wenzhou migration story mirrors China's globalization.</p>
       <a href="/history" class="cta-link">探索历史 →</a>
     </ScrollReveal>
   </ParallaxSection>
 
-  <!-- Business preview -->
   <ParallaxSection
     bgImage="/images/business.jpg"
     headingZh="商行天下"
@@ -41,13 +34,12 @@ import ScrollReveal from '../components/ScrollReveal.astro';
     dark={true}
   >
     <ScrollReveal>
-      <p style="color:rgba(255,255,255,0.85);">从巴黎的皮具工坊到迪拜的贸易中心，从米兰的服装街区到圣保罗的电子产品市场，温州商人以敏锐的商业嗅觉闻名于世。</p>
-      <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">From Paris to Dubai, Milan to Sao Paulo — Wenzhou entrepreneurs are known for their sharp business instincts.</p>
-      <a href="/business" class="cta-link" style="color:#fff;border-color:rgba(255,255,255,0.4);">探索商业 →</a>
+      <p>从巴黎的皮具工坊到迪拜的贸易中心，从米兰的服装街区到圣保罗的电子市场，温州商人以敏锐的商业嗅觉闻名于世。</p>
+      <p class="en-sub">From Paris to Dubai, Milan to Sao Paulo — Wenzhou entrepreneurs are known for their sharp business instincts.</p>
+      <a href="/business" class="cta-link">探索商业 →</a>
     </ScrollReveal>
   </ParallaxSection>
 
-  <!-- Culture preview -->
   <ParallaxSection
     bgImage="/images/culture.jpg"
     headingZh="文化传承"
@@ -55,30 +47,11 @@ import ScrollReveal from '../components/ScrollReveal.astro';
   >
     <ScrollReveal>
       <p>无论身在何处，一碗糯米饭、一句温州话、一座妈祖庙，都是温州人心中不变的故乡坐标。</p>
-      <p class="en-sub" style="text-transform:none;letter-spacing:0;">Wherever they go, a bowl of sticky rice, a phrase in Wenzhou dialect, a Mazu temple — these remain the unchanging coordinates of home.</p>
+      <p class="en-sub">Wherever they go, a bowl of sticky rice, a phrase in Wenzhou dialect, a Mazu temple — these remain the unchanging coordinates of home.</p>
       <a href="/culture" class="cta-link">探索文化 →</a>
     </ScrollReveal>
   </ParallaxSection>
 </Base>
-
-<style>
-  .cta-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.5rem;
-    border: 1px solid var(--color-divider);
-    border-radius: 100px;
-    font-size: 0.875rem;
-    color: var(--color-text);
-    text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
-  }
-
-  .cta-link:hover {
-    background: var(--color-accent-light);
-    border-color: var(--color-accent);
-  }
-</style>
 
 <script src="../scripts/parallax.js"></script>
 <script src="../scripts/scroll-reveal.js"></script>
