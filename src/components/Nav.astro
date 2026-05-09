@@ -28,6 +28,7 @@
     z-index: 100;
     height: var(--nav-height);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 100%);
   }
 
   nav.scrolled {
@@ -36,6 +37,34 @@
     backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
   }
+
+  /* Hero state: white text on dark photos */
+  nav:not(.scrolled) .logo-zh {
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  }
+  nav:not(.scrolled) .logo-en {
+    color: rgba(255,255,255,0.7);
+  }
+  nav:not(.scrolled) .nav-links a {
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  nav:not(.scrolled) .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+  nav:not(.scrolled) .hamburger span {
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Scrolled state: dark text with glass background */
+  nav.scrolled .logo-zh { color: var(--color-text); text-shadow: none; }
+  nav.scrolled .logo-en { color: var(--color-text-muted); }
+  nav.scrolled .nav-links a { color: var(--color-text); text-shadow: none; }
+  nav.scrolled .nav-links a:hover { background: var(--color-accent-light); color: var(--color-accent); }
+  nav.scrolled .hamburger span { background: var(--color-text); box-shadow: none; }
 
   .nav-inner {
     max-width: var(--max-width);
@@ -58,17 +87,17 @@
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 900;
-    color: var(--color-text);
     line-height: 1.2;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
   }
 
   .logo-en {
     font-family: var(--font-en);
     font-size: 0.625rem;
     font-weight: 600;
-    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    transition: color 0.4s ease;
   }
 
   .nav-links {
@@ -82,15 +111,9 @@
     padding: 0.5rem 1rem;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--color-text);
     text-decoration: none;
     border-radius: 100px;
-    transition: all 0.2s ease;
-  }
-
-  .nav-links a:hover {
-    background: var(--color-accent-light);
-    color: var(--color-accent);
+    transition: all 0.3s ease;
   }
 
   .hamburger {
@@ -108,9 +131,8 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--color-text);
     border-radius: 1px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.4s ease;
   }
 
   @media (max-width: 768px) {
@@ -138,6 +160,9 @@
       padding: 0.75rem 1rem;
       border-radius: 8px;
     }
+
+    /* Mobile menu always uses dark text since it has white background */
+    .nav-links.open a { color: var(--color-text) !important; text-shadow: none !important; }
 
     .hamburger {
       display: flex;
