@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import ParallaxSection from '../components/ParallaxSection.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+---
+
+<Base title="商业">
+  <ParallaxSection
+    bgImage="/images/business-1.jpg"
+    headingZh="温州模式"
+    headingEn="The Wenzhou Model"
+    dark={true}
+  >
+    <ScrollReveal>
+      <p style="color:rgba(255,255,255,0.85);">以家庭工业和专业化市场为基础，温州人创造了一种自下而上的经济发展模式。小商品、大市场——这是温州模式的精髓所在。</p>
+      <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">Built on family workshops and specialized markets — small goods, big markets. The essence of the Wenzhou economic model.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+
+  <ParallaxSection
+    bgImage="/images/business-2.jpg"
+    headingZh="全球商业版图"
+    headingEn="Global Business Footprint"
+  >
+    <ScrollReveal>
+      <p>温州商会在全球98个国家和地区设有分支机构。从意大利普拉托的纺织业到巴西圣保罗的电子市场，温州人掌控着众多产业链的关键环节。</p>
+      <p class="en-sub" style="text-transform:none;letter-spacing:0;">Wenzhou business associations operate in 98 countries. From textiles in Prato to electronics in Sao Paulo, Wenzhou entrepreneurs control key supply chain links.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+
+  <ParallaxSection
+    bgImage="/images/business-3.jpg"
+    headingZh="新一代企业家"
+    headingEn="A New Wave of Entrepreneurs"
+    dark={true}
+  >
+    <ScrollReveal>
+      <p style="color:rgba(255,255,255,0.85);">从传统制造到科技创新，新一代温州企业家正在硅谷、深圳和特拉维夫开创未来。他们将温商的务实精神与前沿科技相融合。</p>
+      <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">From manufacturing to tech innovation, a new generation blends Wenzhou pragmatism with cutting-edge technology in Silicon Valley, Shenzhen, and Tel Aviv.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+</Base>
+
+<script src="../scripts/parallax.js"></script>
+<script src="../scripts/scroll-reveal.js"></script>
