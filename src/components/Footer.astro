@@ -4,9 +4,10 @@
       <p class="footer-brand">世界温州人</p>
       <p class="en-sub">World Wenzhou People</p>
       <p class="footer-credit">展示温州人全球故事的文化项目</p>
-      <p class="en-sub" style="text-transform:none;letter-spacing:0;">A cultural project showcasing the global story of Wenzhou people</p>
+      <p class="en-credit">A cultural project showcasing the global story of Wenzhou people</p>
     </div>
     <div class="footer-col">
+      <nav aria-label="Footer navigation">
       <ul class="footer-links">
         <li><a href="/">首页 Home</a></li>
         <li><a href="/history">历史 History</a></li>
@@ -14,6 +15,7 @@
         <li><a href="/culture">文化 Culture</a></li>
         <li><a href="/about">关于 About</a></li>
       </ul>
+      </nav>
     </div>
   </div>
 </footer>
@@ -43,7 +45,13 @@
 
   .footer-credit {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--color-text-muted);
+  }
+
+  .en-credit {
+    font-family: var(--font-en);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
   }
 
   .footer-links {
