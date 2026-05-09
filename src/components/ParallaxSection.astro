@@ -4,20 +4,22 @@ interface Props {
   headingZh: string;
   headingEn: string;
   dark?: boolean;
+  level?: 1 | 2 | 3;
 }
 
-const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
+const { bgImage, headingZh, headingEn, dark = false, level = 2 } = Astro.props;
+const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
 <section
   class="parallax-section"
-  style={`background-image: url(${bgImage});`}
   class:list={{ 'theme-dark': dark, 'theme-light': !dark }}
 >
-  <div class="section-gradient" data-parallax-bg></div>
+  <div class="parallax-bg" data-parallax-bg style={`background-image: url(${bgImage});`}></div>
+  <div class="section-gradient"></div>
   <div class="parallax-content">
     <div class="section-divider"></div>
-    <h2>{headingZh}</h2>
+    <HeadingTag class="section-heading">{headingZh}</HeadingTag>
     <p class="section-en">{headingEn}</p>
     <div class="parallax-body">
       <slot />
@@ -31,15 +33,21 @@ const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
     min-height: 100vh;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+
+  .parallax-bg {
+    position: absolute;
+    inset: -20%;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    will-change: transform;
   }
 
   .section-gradient {
     position: absolute;
     inset: 0;
-    will-change: transform;
   }
 
   /* Dark theme: warm dark overlay for light text */
@@ -52,7 +60,7 @@ const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
     );
   }
 
-  .theme-dark h2 {
+  .theme-dark .section-heading {
     color: #ffffff;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
@@ -84,7 +92,7 @@ const { bgImage, headingZh, headingEn, dark = false } = Astro.props;
     );
   }
 
-  .theme-light h2 {
+  .theme-light .section-heading {
     color: var(--color-text);
   }
 

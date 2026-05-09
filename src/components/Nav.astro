@@ -1,3 +1,19 @@
+---
+interface Props {
+  activePage?: string;
+}
+
+const { activePage = '/' } = Astro.props;
+
+const links = [
+  { href: '/', label: '首页' },
+  { href: '/history', label: '历史' },
+  { href: '/business', label: '商业' },
+  { href: '/culture', label: '文化' },
+  { href: '/about', label: '关于' },
+];
+---
+
 <nav id="site-nav">
   <div class="nav-inner">
     <a href="/" class="logo">
@@ -5,11 +21,17 @@
       <span class="logo-en">World Wenzhou</span>
     </a>
     <ul class="nav-links">
-      <li><a href="/">首页</a></li>
-      <li><a href="/history">历史</a></li>
-      <li><a href="/business">商业</a></li>
-      <li><a href="/culture">文化</a></li>
-      <li><a href="/about">关于</a></li>
+      {links.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class:list={{ active: activePage === href }}
+            aria-current={activePage === href ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
     </ul>
     <button class="hamburger" id="hamburger" aria-label="菜单" aria-expanded="false">
       <span></span>
@@ -64,7 +86,15 @@
   nav.scrolled .logo-en { color: var(--color-text-muted); }
   nav.scrolled .nav-links a { color: var(--color-text); text-shadow: none; }
   nav.scrolled .nav-links a:hover { background: var(--color-accent-light); color: var(--color-accent); }
+  nav.scrolled .nav-links a.active { background: var(--color-accent-light); color: var(--color-accent); font-weight: 600; }
   nav.scrolled .hamburger span { background: var(--color-text); box-shadow: none; }
+
+  /* Hero state active link */
+  nav:not(.scrolled) .nav-links a.active {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-weight: 600;
+  }
 
   .nav-inner {
     max-width: var(--max-width);

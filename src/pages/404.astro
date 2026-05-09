@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="页面未找到" currentPath="">
+  <div class="not-found-page">
+    <div class="not-found-content">
+      <h1>页面未找到</h1>
+      <p class="en-sub">Page Not Found</p>
+      <p>您访问的页面不存在。请检查网址是否正确，或返回首页继续浏览。</p>
+      <p class="about-en-text">The page you are looking for does not exist. Please check the URL or return to the homepage.</p>
+      <a href="/" class="back-link">返回首页 Back to Home</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .not-found-page {
+    padding-top: calc(var(--nav-height) + 8rem);
+    padding-bottom: 4rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .not-found-content {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .not-found-content h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin-bottom: 0.25rem;
+  }
+
+  .about-en-text {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid var(--color-divider);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .back-link:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #ffffff;
+  }
+</style>

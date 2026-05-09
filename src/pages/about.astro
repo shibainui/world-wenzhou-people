@@ -2,20 +2,20 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="关于">
+<Base title="关于" currentPath="/about">
   <div class="about-page">
     <div class="about-content">
       <div class="section-divider"></div>
-      <h2>关于本项目</h2>
+      <h1>关于本项目</h1>
       <p class="en-sub">About This Project</p>
       <p>世界温州人是一个展示温州全球移民社群文化与历史的数字展览项目。我们希望通过文字与影像，讲述温州人在全球各地的故事，记录他们的奋斗与成就。</p>
-      <p class="en-sub" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:0.9rem;">World Wenzhou People is a digital exhibition project showcasing the culture and history of Wenzhou's global diaspora. Through words and images, we tell the stories of Wenzhou people around the world.</p>
+      <p class="about-en-text">World Wenzhou People is a digital exhibition project showcasing the culture and history of Wenzhou's global diaspora. Through words and images, we tell the stories of Wenzhou people around the world.</p>
 
-      <h3 style="margin-top:3rem;">联系我们</h3>
+      <h2 class="about-section-heading">联系我们</h2>
       <p class="en-sub">Contact</p>
       <p>如有任何问题或合作意向，欢迎联系我们。</p>
-      <p class="en-sub" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:0.9rem;">For inquiries or collaboration, please reach out.</p>
-      <p style="margin-top:1.5rem;">邮箱 Email: <a href="mailto:hello@worldwenzhou.com">hello@worldwenzhou.com</a></p>
+      <p class="about-en-text">For inquiries or collaboration, please reach out.</p>
+      <p class="about-email">邮箱 Email: <a href="mailto:hello@worldwenzhou.com">hello@worldwenzhou.com</a></p>
     </div>
   </div>
 </Base>
@@ -44,11 +44,24 @@ import Base from '../layouts/Base.astro';
     border-radius: 2px;
   }
 
-  .about-content h2 {
+  .about-content h1 {
     margin-bottom: 0.25rem;
   }
 
-  .about-content h3 {
+  .about-section-heading {
+    margin-top: 3rem;
     margin-bottom: 0.25rem;
+  }
+
+  .about-en-text {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .about-email {
+    margin-top: 1.5rem;
   }
 </style>
