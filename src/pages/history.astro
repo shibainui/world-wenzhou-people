@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import ParallaxSection from '../components/ParallaxSection.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+---
+
+<Base title="历史">
+  <ParallaxSection
+    bgImage="/images/history-1.jpg"
+    headingZh="海上丝绸之路"
+    headingEn="The Maritime Silk Road"
+    dark={true}
+  >
+    <ScrollReveal>
+      <p style="color:rgba(255,255,255,0.85);">温州地处浙江东南沿海，自古就是海上丝绸之路的重要节点。宋代时期，温州港已是全国四大港口之一，商船远航至日本、东南亚和印度洋沿岸。</p>
+      <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">Wenzhou was one of China's four great ports during the Song Dynasty, with merchant ships reaching Japan, Southeast Asia, and the Indian Ocean.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+
+  <ParallaxSection
+    bgImage="/images/history-2.jpg"
+    headingZh="近代移民潮"
+    headingEn="Modern Migration Waves"
+  >
+    <ScrollReveal>
+      <p>19世纪末至20世纪初，第一批温州人远赴欧洲谋生。他们从街头小贩起步，逐渐建立起横跨法国、意大利、荷兰的商业网络。二战后的移民潮进一步扩大了温州的全球版图。</p>
+      <p class="en-sub" style="text-transform:none;letter-spacing:0;">From the late 19th century, Wenzhou migrants built business networks across France, Italy, and the Netherlands, starting as street vendors.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+
+  <ParallaxSection
+    bgImage="/images/history-3.jpg"
+    headingZh="改革开放后的腾飞"
+    headingEn="Rise After Reform and Opening"
+    dark={true}
+  >
+    <ScrollReveal>
+      <p style="color:rgba(255,255,255,0.85);">1978年后，温州成为中国民营经济的发源地之一。"温州模式"闻名全国，无数温州人走向世界，在全球130多个国家和地区建立了自己的事业。</p>
+      <p class="en-sub" style="color:rgba(255,255,255,0.6);text-transform:none;letter-spacing:0;">After 1978, Wenzhou became the cradle of China's private economy. The "Wenzhou Model" spread globally across 130+ countries.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+
+  <ParallaxSection
+    bgImage="/images/history-4.jpg"
+    headingZh="新生代温州人"
+    headingEn="The New Generation"
+  >
+    <ScrollReveal>
+      <p>今天的年轻温州人活跃在科技、金融、艺术等各个领域。他们既传承着父辈的商业精神，又以全球化的视野开创新的可能。</p>
+      <p class="en-sub" style="text-transform:none;letter-spacing:0;">Today's generation thrives in tech, finance, and the arts — carrying forward entrepreneurial traditions with a global perspective.</p>
+    </ScrollReveal>
+  </ParallaxSection>
+</Base>
+
+<script src="../scripts/parallax.js"></script>
+<script src="../scripts/scroll-reveal.js"></script>
