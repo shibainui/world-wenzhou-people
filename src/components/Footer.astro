@@ -1,0 +1,73 @@
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <p class="footer-brand">世界温州人</p>
+      <p class="en-sub">World Wenzhou People</p>
+      <p class="footer-credit">展示温州人全球故事的文化项目</p>
+      <p class="en-sub" style="text-transform:none;letter-spacing:0;">A cultural project showcasing the global story of Wenzhou people</p>
+    </div>
+    <div class="footer-col">
+      <ul class="footer-links">
+        <li><a href="/">首页 Home</a></li>
+        <li><a href="/history">历史 History</a></li>
+        <li><a href="/business">商业 Business</a></li>
+        <li><a href="/culture">文化 Culture</a></li>
+        <li><a href="/about">关于 About</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--color-divider);
+    padding: 4rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-credit {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+</style>
