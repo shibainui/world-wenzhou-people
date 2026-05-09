@@ -7,6 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "build:gh": "GITHUB_PAGES=true astro build",
+    "deploy": "GITHUB_PAGES=true astro build && touch dist/.nojekyll && rm -rf /tmp/gh-deploy && mkdir -p /tmp/gh-deploy && cp -a dist/. /tmp/gh-deploy/ && cd /tmp/gh-deploy && git init && git checkout -b gh-pages && git add -A && git commit -m deploy && git push https://github.com/shibainui/world-wenzhou-people.git gh-pages --force",
     "preview": "astro preview"
   },
   "dependencies": {
