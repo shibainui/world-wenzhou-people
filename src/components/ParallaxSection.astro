@@ -11,13 +11,14 @@ const { bgImage, headingZh, headingEn, dark = false, level = 2 } = Astro.props;
 const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 const base = import.meta.env.BASE_URL;
 const imageUrl = bgImage.startsWith('/') ? `${base}${bgImage.slice(1)}` : `${base}${bgImage}`;
+const webpUrl = imageUrl.replace(/\.jpg$/, '.webp');
 ---
 
 <section
   class="parallax-section"
   class:list={{ 'theme-dark': dark, 'theme-light': !dark }}
 >
-  <div class="parallax-bg" data-parallax-bg style={`background-image: url(${imageUrl});`}></div>
+  <div class="parallax-bg" data-parallax-bg style={`background-image: image-set(url(${webpUrl}) type("image/webp"), url(${imageUrl}) type("image/jpeg"));`}></div>
   <div class="section-gradient"></div>
   <div class="parallax-content">
     <div class="section-divider"></div>
